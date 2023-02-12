@@ -1,78 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'offline_page.dart';
 import 'online_page.dart';
+import 'auth.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(HomePage(
+    title: '',
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({Key? key, required String title}) : super(key: key);
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  final User? user = Auth().currentUser;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  Future<void> signOut() async {
+    await Auth().signOut();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
         body: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
+      ),
       child: Column(
         children: [
           SizedBox(
@@ -81,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           Row(
             children: [
               SizedBox(
-                width: 152,
+                width: 150,
               ),
               ElevatedButton(
                 onPressed: (() {
@@ -93,11 +48,18 @@ class _HomePageState extends State<HomePage> {
                             ))),
                   );
                 }),
-                child: Text("ONLINE"),
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(
-                      Color.fromARGB(255, 0, 0, 0)),
+                child: Text(
+                  "  ONLINE  ",
+                  style: TextStyle(color: Color.fromARGB(255, 1, 34, 61)),
                 ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.black,
+                    elevation: 0,
+                    side: const BorderSide(
+                      width: 3.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    )),
               ),
             ],
           ),
@@ -123,11 +85,47 @@ class _HomePageState extends State<HomePage> {
                             )),
                   );
                 }),
-                child: Text("OFFLINE"),
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(
-                      Color.fromARGB(255, 0, 0, 0)),
+                child: Text(
+                  "  OFFLINE ",
+                  style: TextStyle(color: Color.fromARGB(255, 1, 34, 61)),
                 ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.black,
+                    elevation: 0,
+                    side: const BorderSide(
+                      width: 3.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    )),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                height: 285,
+              )
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 290,
+              ),
+              ElevatedButton(
+                onPressed: (signOut),
+                child: Text(
+                  "  Log Out ",
+                  style: TextStyle(color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.black,
+                    elevation: 0,
+                    side: const BorderSide(
+                      width: 3.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    )),
               )
             ],
           )

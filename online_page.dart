@@ -70,96 +70,117 @@ class OnliState extends State<Onli> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
         body: Container(
-          child: Column(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 230,
+          ),
+          Row(
             children: [
               SizedBox(
-                height: 230,
+                width: 120,
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Khan Academy"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  ),
-                ],
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "KHAN ACADEMY",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Repvilla"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  )
-                ],
-              ),
+            ],
+          ),
+          Row(
+            children: [
               SizedBox(
                 height: 20,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Study Community"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Psychological Test"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  )
-                ],
               )
             ],
           ),
-        ));
+          Row(
+            children: [
+              SizedBox(
+                width: 155,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "REPLIKA",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 105,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "STUDY COMMUNITY",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                height: 20,
+              )
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 95,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "PSYCHOLOGICAL TEST",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                height: 20,
+              )
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 110,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "PROGRESS CHECK",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    ));
   }
 }

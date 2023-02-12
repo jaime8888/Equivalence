@@ -60,10 +60,10 @@ class _LoginPageState extends State<LoginPage> {
               borderSide: BorderSide(color: Colors.white),
               borderRadius: BorderRadius.all(Radius.circular(10))),
           // hintText: 'Enter your product description',
-          labelStyle: TextStyle(color: Colors.white),
+          labelStyle: TextStyle(color: Color.fromARGB(255, 1, 34, 61)),
           labelText: title,
           floatingLabelBehavior: FloatingLabelBehavior.auto),
-      style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+      style: TextStyle(color: Color.fromARGB(255, 1, 34, 61)),
     );
   }
 
@@ -77,11 +77,16 @@ class _LoginPageState extends State<LoginPage> {
           isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
       child: Text(
         isLogin ? 'Login' : 'Register',
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(color: Color.fromARGB(255, 1, 34, 61)),
       ),
-      style: const ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
-      ),
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.black,
+          elevation: 0,
+          side: const BorderSide(
+            width: 3.0,
+            color: Color.fromARGB(255, 255, 255, 255),
+          )),
     );
   }
 
@@ -100,8 +105,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          color: Colors.black,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
         ),
         height: double.infinity,
         width: double.infinity,
@@ -112,12 +118,12 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-                height: 85,
+                height: 155,
               ),
-              Image.asset(
-                "assets/k.jpg",
-                width: 200,
-                height: 200,
+              Text(
+                "Log In",
+                style: TextStyle(
+                    fontSize: 25, color: Color.fromARGB(255, 1, 34, 61)),
               ),
               SizedBox(
                 height: 75,

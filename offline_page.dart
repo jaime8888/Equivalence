@@ -70,96 +70,95 @@ class OfliState extends State<Ofli> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
         body: Container(
-          child: Column(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 230,
+          ),
+          Row(
             children: [
               SizedBox(
-                height: 230,
+                width: 145,
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("E-BOOKS"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  ),
-                ],
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "E-BOOKS",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Storyteller"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  )
-                ],
-              ),
+            ],
+          ),
+          Row(
+            children: [
               SizedBox(
                 height: 20,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Calculator"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 130,
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {}),
-                    child: Text("Preschool preporation"),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                  )
-                ],
               )
             ],
           ),
-        ));
+          Row(
+            children: [
+              SizedBox(
+                width: 125,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "STORYTELLER",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 130,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "CALCULATOR",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                height: 20,
+              )
+            ],
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 70,
+              ),
+              TextButton(
+                onPressed: (() {}),
+                child: Text(
+                  "PRESCHOOL PREPARATION",
+                  style: TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 1, 34, 61)),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ));
   }
 }
